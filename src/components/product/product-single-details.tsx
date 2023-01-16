@@ -499,47 +499,50 @@ const ProductSingleDetails: React.FC<Props> = ({ product }: any) => {
   return (
     <div>
       {show && <GalleryProduct handleShow={handleShow}/> }
+  <div className="block md:hidden">
+    
+        <Carousel 
+        pagination={{
+          clickable: true,   
+        }}
+        buttonClassName="hidden"
+    
+                  >
+                  <SwiperSlide key={`product-gallery-key-`}>
+                      <div className="col-span-1 transition duration-150 ease-in hover:opacity-90 flex justify-center mb-[30px]">
+                        <Image
+                          width={485}
+                          height={485}
+                          src="https://cdn.pnj.io/images/thumbnails/485/485/detailed/146/GCXMXMY000535-Day-co-Vang-14K-dinh-da-ECZ-Disney-PNJ-Ariel-_1.png"
+                          alt="{`${product?.name}--${index}`}"
+                          className="object-cover w-full "
+                        />
+                        
+                      </div>
+                    </SwiperSlide>
+                    <SwiperSlide key={`product-gallery-key-`}>
+                      <div className="col-span-1 transition duration-150 ease-in hover:opacity-90 flex justify-center mb-[30px]">
+                        <Image
+                          width={485}
+                          height={485}
+                          src="https://cdn.pnj.io/images/thumbnails/485/485/detailed/146/GCXMXMY000535-Day-co-Vang-14K-dinh-da-ECZ-Disney-PNJ-Ariel-_1.png"
+                          alt="{`${product?.name}--${index}`}"
+                          className="object-cover w-full mb-[30px]"
+                        />                    
+                      </div>
+                    </SwiperSlide>
+                  </Carousel>
+                  <div className="flex justify-center mt-2 cursor-pointer" onClick={() => handleShow()}>
+                <img src="https://cdn.pnj.io/images/p_detail/anh.svg"/>
+              </div>         
+
+  </div>
    
+        
       <div className="block lg:grid grid-cols-9 gap-x-10 xl:gap-x-14 pt-7 pb-10 lg:pb-14 2xl:pb-20 items-start">
       
-          <div className="md:hidden block">
-    
-    <Carousel 
-    pagination={{
-      clickable: true,   
-    }}
-    buttonClassName="hidden"
-
-              >
-              <SwiperSlide key={`product-gallery-key-`}>
-                  <div className="col-span-1 transition duration-150 ease-in hover:opacity-90 flex justify-center mb-[30px]">
-                    <Image
-                      width={485}
-                      height={485}
-                      src="https://cdn.pnj.io/images/thumbnails/485/485/detailed/146/GCXMXMY000535-Day-co-Vang-14K-dinh-da-ECZ-Disney-PNJ-Ariel-_1.png"
-                      alt="{`${product?.name}--${index}`}"
-                      className="object-cover w-full "
-                    />
-                    
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide key={`product-gallery-key-`}>
-                  <div className="col-span-1 transition duration-150 ease-in hover:opacity-90 flex justify-center mb-[30px]">
-                    <Image
-                      width={485}
-                      height={485}
-                      src="https://cdn.pnj.io/images/thumbnails/485/485/detailed/146/GCXMXMY000535-Day-co-Vang-14K-dinh-da-ECZ-Disney-PNJ-Ariel-_1.png"
-                      alt="{`${product?.name}--${index}`}"
-                      className="object-cover w-full mb-[30px]"
-                    />                    
-                  </div>
-                </SwiperSlide>
-              </Carousel>
-              <div className="flex justify-center mt-2 cursor-pointer" onClick={() => handleShow()}>
-            <img src="https://cdn.pnj.io/images/p_detail/anh.svg"/>
-          </div>         
-
-</div>        //   <Swiper
+        <div></div>
+        //   <Swiper
         //   pagination={{
         //     clickable: true,
         //     renderBullet: function(index, className) {
@@ -576,11 +579,8 @@ const ProductSingleDetails: React.FC<Props> = ({ product }: any) => {
 
         // </SwiperSlide>
         // </Swiper>
-      
-     
 
-
-          <div className="col-span-5 grid grid-cols-1 gap-2.5 className="md:block hidden"">
+          <div className="col-span-5 grid grid-cols-1 gap-2.5 md:block hidden">
    
 <div>
   <ImageSlider/>
@@ -638,7 +638,25 @@ const ProductSingleDetails: React.FC<Props> = ({ product }: any) => {
                   />
                 </div>
               ))
-            
+            ) : (
+              <div className="col-span-full bg-gray-300 flex justify-center rounded-md">
+                <div className="transition duration-150 ease-in hover:opacity-90 w-1/2 flex">
+                  <Image
+                    width={475}
+                    height={618}
+                    src={
+                      combineImages?.[0]?.original ??
+                      "/assets/placeholder/products/product-gallery.svg"
+                    }
+                    alt={product?.name}
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            )} */}
+             
+          </div>
+
   
         <div className="col-span-4 pt-8 lg:pt-0">
           <div className="pb-2 border-b border-gray-300">
