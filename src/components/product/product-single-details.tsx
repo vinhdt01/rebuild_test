@@ -501,8 +501,8 @@ const ProductSingleDetails: React.FC<Props> = ({ product }: any) => {
       {show && <GalleryProduct handleShow={handleShow}/> }
    
       <div className="block lg:grid grid-cols-9 gap-x-10 xl:gap-x-14 pt-7 pb-10 lg:pb-14 2xl:pb-20 items-start">
-        {width < 1025 && (
-          <div>
+      
+          <div className="md:hidden block">
     
     <Carousel 
     pagination={{
@@ -577,10 +577,10 @@ const ProductSingleDetails: React.FC<Props> = ({ product }: any) => {
         // </SwiperSlide>
         // </Swiper>
       
-        )} 
+     
 
-{width >= 1025 && (
-          <div className="col-span-5 grid grid-cols-1 gap-2.5">
+
+          <div className="col-span-5 grid grid-cols-1 gap-2.5 className="md:block hidden"">
    
 <div>
   <ImageSlider/>
@@ -638,26 +638,7 @@ const ProductSingleDetails: React.FC<Props> = ({ product }: any) => {
                   />
                 </div>
               ))
-            ) : (
-              <div className="col-span-full bg-gray-300 flex justify-center rounded-md">
-                <div className="transition duration-150 ease-in hover:opacity-90 w-1/2 flex">
-                  <Image
-                    width={475}
-                    height={618}
-                    src={
-                      combineImages?.[0]?.original ??
-                      "/assets/placeholder/products/product-gallery.svg"
-                    }
-                    alt={product?.name}
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-            )} */}
-             
-          </div>
-          
-        )}
+            
   
         <div className="col-span-4 pt-8 lg:pt-0">
           <div className="pb-2 border-b border-gray-300">
